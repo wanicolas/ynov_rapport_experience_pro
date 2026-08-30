@@ -168,7 +168,7 @@ Dans le cadre du traitement de données citoyennes sensibles (état civil, inscr
 Mon parcours au sein de Logitud Solutions s'inscrit dans une durée continue de quatre années d'alternance, structurée en deux cycles académiques complémentaires :
 
 - *Période 2022 - 2024 (2 ans) :* BUT Métiers du Multimédia et de l'Internet (MMI) à l'IUT de Haguenau (Université de Strasbourg). Cette première phase a été consacrée à l'apprentissage pratique du développement front-end, à l'intégration de maquettes, à la découverte des outils de versioning collaboratif (Git) et à l'assimilation des contraintes du secteur des collectivités territoriales.
-- *Période 2024 - 2026 (2 ans) :* Mastère Expert en Développement Web à Ynov Campus Strasbourg. Cette seconde phase a marqué une montée en puissance vers la conception d'architectures logicielles, la standardisation des outillages de développement, la création de composants génériques avancés et la prise de décisions techniques structurantes en coordination avec les équipes de développement.
+- *Période 2024 - 2026 (2 ans) :* Mastère Expert en développement logiciel à Ynov Campus Strasbourg. Cette seconde phase a marqué une montée en puissance vers la conception d'architectures logicielles, la standardisation des outillages de développement, la création de composants génériques avancés et la prise de décisions techniques structurantes en coordination avec les équipes de développement.
 
 #table(
   columns: (1.1fr, 1.8fr, 2.1fr),

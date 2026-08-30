@@ -7,7 +7,7 @@
   #text(size: 16pt, weight: "bold")[Résumé Exécutif]
   #v(0.8em)
 
-  Ce rapport d'expérience professionnelle retrace quatre années d'immersion continue au sein de l'entreprise Logitud Solutions, éditeur de référence de logiciels pour les collectivités territoriales, dans le cadre de l'obtention du titre de Mastère 2 Expert en Développement Web à Ynov Campus Strasbourg.
+  Ce rapport d'expérience professionnelle retrace quatre années d'immersion continue au sein de l'entreprise Logitud Solutions, éditeur de référence de logiciels pour les collectivités territoriales, dans le cadre de l'obtention du titre de Mastère 2 Expert en développement logiciel à Ynov Campus Strasbourg.
 
   Après deux années initiales de BUT MMI consacrées à l'acquisition des fondamentaux du développement web et à la découverte de l'écosystème territorial, les deux années du cycle Mastère ont concrétisé une montée en puissance vers des responsabilités d'architecture logicielle, d'arbitrage technique et de gouvernance de la qualité front-end. Face aux impératifs croissants de modernisation des services publics, mon action s'est concentrée sur la transition d'interfaces historiques vers un écosystème SaaS modulaire, hautement performant et nativement accessible.
 

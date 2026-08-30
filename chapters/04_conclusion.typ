@@ -6,7 +6,7 @@
 
 == Bilan global de quatre années d'immersion professionnelle
 
-L'accomplissement de ces quatre années d'alternance au sein de l'entreprise Logitud Solutions — deux années de BUT MMI suivies de deux années de Mastère Expert en Développement Web à Ynov Campus Strasbourg — représente une étape déterminante dans la construction de mon identité professionnelle.
+L'accomplissement de ces quatre années d'alternance au sein de l'entreprise Logitud Solutions — deux années de BUT MMI suivies de deux années de Mastère Expert en développement logiciel à Ynov Campus Strasbourg — représente une étape déterminante dans la construction de mon identité professionnelle.
 
 Cette continuité rare au sein d'une même structure m'a offert l'opportunité d'observer et d'accompagner une transformation technologique majeure. D'une position initiale d'apprentissage centrée sur l'intégration HTML/CSS et la maintenance corrective, j'ai progressivement accédé à un niveau d'expertise me permettant de concevoir des architectures logicielles complètes, de piloter l'industrialisation des outillages de développement et d'influer directement sur les choix techniques structurants de l'entreprise.
 

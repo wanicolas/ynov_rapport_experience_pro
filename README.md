@@ -1,6 +1,6 @@
-# Rapport d'Expérience Professionnelle — Mastère 2 Expert en Développement Web
+# Rapport d'Expérience Professionnelle — Mastère 2 Expert en développement logiciel
 
-Ce dépôt contient les sources [Typst](https://typst.app/) et les ressources graphiques du **Rapport d'expérience professionnelle** rédigé par **Nicolas Walter** dans le cadre de l'obtention du titre de **Mastère 2 Expert en Développement Web** (Ynov Campus Strasbourg, promotion 2024–2026).
+Ce dépôt contient les sources [Typst](https://typst.app/) et les ressources graphiques du **Rapport d'expérience professionnelle** rédigé par **Nicolas Walter** dans le cadre de l'obtention du titre de **Mastère 2 Expert en développement logiciel** (Ynov Campus Strasbourg, promotion 2024–2026).
 
 Le document retrace quatre années d'immersion professionnelle chez **Logitud Solutions**, éditeur de logiciels de référence pour les collectivités territoriales, en se focalisant sur les deux années de cycle Mastère en tant que développeur et référent technique front-end.
 
@@ -20,8 +20,8 @@ Le rapport est calibré à **30 pages** et s'articule autour de quatre grands ax
    - **Projet Phare (1 an) — Moteur de vente en ligne et billetterie modulaire (Ville de Mulhouse)** :
      - Stack technique moderne : Nuxt 4, Nuxt UI v4, TypeScript strict, Tailwind CSS, ESLint, Prettier et CI GitHub Actions (Vitest, `vue-tsc`).
      - Surcouche `DataTable` personnalisée : sélecteur dynamique de colonnes, actions par ligne, tri et filtrage hybrides front/back (instantanéité sur 6 000 entrées), exports natifs CSV et PDF via `defineExpose`.
-     - Système de tiroirs latéraux empilables (*Stackable Drawers*) avec gestion du focus et du z-index.
-     - Outils d'audit : Command Palette (`Ctrl+K`) et visualiseur de *diffs* JSON (`split` et `unified`).
+     - Système de tiroirs latéraux empilables (_Stackable Drawers_) avec gestion du focus et du z-index.
+     - Outils d'audit : Command Palette (`Ctrl+K`) et visualiseur de _diffs_ JSON (`split` et `unified`).
      - Tableaux de bord de fréquentation avec Apache ECharts réactifs.
      - Parcours citoyen (catalogue, créneaux, panier réactif, gestion d'erreurs automatique) et parcours vente guichet.
    - **Projet 2 (4 mois) — File d'attente connectée & Borne tactile (PopQueue)** :
@@ -101,6 +101,6 @@ typst compile report.typ report.pdf --font-path assets/fonts
 
 - **Auteur :** Nicolas Walter
 - **Rôle :** Développeur Web Front-End chez [Logitud Solutions](https://www.logitud.fr)
-- **Formation :** Mastère Expert en Développement Web — Ynov Campus Strasbourg (2024–2026)
+- **Formation :** Mastère Expert en développement logiciel — Ynov Campus Strasbourg (2024–2026)
 - **Site personnel :** [nicolaswalter.fr](https://nicolaswalter.fr)
 - **Dépôt GitHub :** [wanicolas/ynov_rapport_experience_pro](https://github.com/wanicolas/ynov_rapport_experience_pro)

@@ -75,7 +75,7 @@
     #v(2em)
     #text(size: 12pt)[
       *Période scolaire :* 2024 - 2026 \
-      *Formation :* Mastère 2 Expert en Développement Full Stack \
+      *Formation :* Mastère 2 Expert en développement logiciel \
       *École :* Ynov Campus Strasbourg \
     ]
   ]
@@ -175,7 +175,7 @@
     #text(size: 12pt)[
       *Candidat :* Nicolas Walter \
       *Évaluation :* Rapport d'expérience professionnelle \
-      *Certification :* Mastère 2 Expert en Développement Full Stack
+      *Certification :* Mastère 2 Expert en développement logiciel
     ]
 
     #v(6em)
