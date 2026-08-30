@@ -16,8 +16,8 @@ Cette expérience m'a également permis d'acquérir une compréhension intime de
 
 L'écosystème *Mon-Guichet* et les nouveaux modules développés au cours de ces deux dernières années ouvrent des perspectives prometteuses pour Logitud Solutions :
 
-- *Généralisation de la modularité applicative :* Le succès du moteur de billetterie déployé pour la Ville de Mulhouse démontre la pertinence de l'architecture en modules indépendants et interconnectés. Ce modèle a vocation à être décliné sur d'autres services municipaux (réservation d'équipements sportifs et culturels, gestion des cantines scolaires, inscriptions événementielles).
-- *Poursuite de l'engagement pour l'accessibilité :* Avec le renforcement continu des obligations légales pesant sur le secteur public, la démarche d'accessibilité native intégrée dans nos composants constituera un atout concurrentiel majeur lors des futurs appels d'offres territoriaux.
+- *Généralisation de la modularité applicative :* Le succès du moteur de billetterie déployé pour la Ville de Mulhouse (150 000 € de transactions dès les premiers mois) démontre la pertinence de l'architecture en modules indépendants et interconnectés. Ce modèle a vocation à être décliné sur d'autres services municipaux (réservation d'équipements sportifs et culturels, gestion des cantines scolaires, inscriptions événementielles).
+- *Poursuite de l'engagement pour l'accessibilité :* Avec le renforcement continu des obligations légales pesant sur le secteur public, la démarche d'accessibilité native intégrée dans nos composants (RGAA 4.1.2 / WCAG 2.1 AA) constituera un atout concurrentiel majeur lors des futurs appels d'offres territoriaux.
 - *Intégration d'outils d'assistance et d'automatisation :* L'évolution future de la plateforme s'orientera vers une assistance accrue aux agents communaux, notamment par la pré-validation automatique des pièces justificatives et l'optimisation des plannings de rendez-vous en mairie.
 
 == Projection et ambitions professionnelles personnelles
@@ -33,7 +33,7 @@ Mon ambition est de continuer à concevoir des architectures front-end modernes,
 // -------------------------------------------------------------
 
 #text(size: 16pt, weight: "bold")[Webographie & Références Techniques]
-#v(1em)
+#v(0.8em)
 
 1. *Documentation officielle Nuxt 4 :* \
   #link("https://nuxt.com/docs")[https://nuxt.com/docs] — Guide d'architecture, Composition API, SSR et structure applicative.
@@ -50,45 +50,74 @@ Mon ambition est de continuer à concevoir des architectures front-end modernes,
 5. *Web Content Accessibility Guidelines (WCAG 2.1) - W3C :* \
   #link("https://www.w3.org/TR/WCAG21")[https://www.w3.org/TR/WCAG21] — Standards internationaux d'accessibilité numérique de niveau AA.
 
-6. *Apache ECharts Documentation & Examples :* \
-  #link("https://echarts.apache.org/en/index.html")[https://echarts.apache.org/en/index.html] — Visualisation de données réactive et interactive.
+6. *Laravel Reverb Documentation :* \
+  #link("https://laravel.com/docs/reverb")[https://laravel.com/docs/reverb] — Serveur de WebSockets temps réel haute performance pour l'écosystème Laravel.
 
 7. *Vitest - Next Generation Testing Framework :* \
   #link("https://vitest.dev/guide")[https://vitest.dev/guide] — Framework de tests unitaires pour l'écosystème Vue/Nuxt.
 
-8. *Plateforme Logitud Solutions :* \
+8. *Apache ECharts Documentation & Examples :* \
+  #link("https://echarts.apache.org/en/index.html")[https://echarts.apache.org/en/index.html] — Visualisation de données réactive et interactive.
+
+9. *Plateforme Logitud Solutions :* \
   #link("https://www.logitud.fr")[https://www.logitud.fr] — Présentation des gammes logicielles et solutions pour collectivités territoriales.
 
 #pagebreak()
 
 // -------------------------------------------------------------
-// ANNEXES : MATRICE DE L'ENVIRONNEMENT TECHNIQUE
+// ANNEXES : MATRICE TECHNIQUE & RÉFÉRENTIEL DE COMPÉTENCES
 // -------------------------------------------------------------
 
-#text(size: 16pt, weight: "bold")[Annexes : Matrice de l'Environnement Technique]
-#v(0.8em)
+#text(size: 16pt, weight: "bold")[Annexes : Environnement Technique & Référentiel RNCP]
+#v(0.6em)
 
+#text(size: 12pt, weight: "bold")[Annexe A : Matrice de l'Environnement Technique]
+#v(0.4em)
 
 #table(
   columns: (1.2fr, 1.8fr, 2fr),
   [Catégorie], [Technologies & Outils], [Rôle et domaine d'application],
   [Frameworks & UI],
   [Nuxt 4, Vue 3, Nuxt UI v4, Tailwind CSS],
-  [Socle applicatif moderne, Composition API et design system],
+  [Socle applicatif moderne, Composition API et design system unifié],
 
   [Langages & Typage],
-  [TypeScript (mode strict), JavaScript],
+  [TypeScript (mode strict), JavaScript ESNext],
   [Sécurité de typage statique de bout en bout et logique front],
 
   [Composants avancés], [Headless UI, Apache ECharts, Diff JSON], [Composants accessibles, visualisations et audit],
   [Temps réel & API],
-  [WebSockets (WS), REST / JSON API],
+  [Laravel Reverb, WebSockets (WS), REST / JSON],
   [Synchronisation instantanée des files d'attente et communication back-end],
 
-  [Qualité & Tests], [ESLint, Prettier, Vitest, vue-tsc], [Formatage, détection d'erreurs statiques et tests unitaires],
+  [Qualité & Tests],
+  [ESLint, Prettier, Vitest (85% cov), vue-tsc],
+  [Formatage, détection d'erreurs statiques et tests unitaires],
 
   [DevOps & Outils],
-  [GitHub Actions, Docker, Linear, Figma, Notion],
-  [Intégration continue, maquettage UI/UX et gestion de projet agile],
+  [GitHub Actions (CI ~3 min), Docker, Linear, Figma, Notion],
+  [Intégration continue, environnements de test éphémères et gestion agile],
 )
+
+#v(1em)
+#text(size: 12pt, weight: "bold")[Annexe B : Couverture des Compétences du Titre RNCP Niveau 7]
+#v(0.4em)
+
+#table(
+  columns: (1.3fr, 2.7fr),
+  [Bloc de compétences RNCP], [Démonstration et réalisations dans le cadre professionnel],
+  [*1. Analyse des besoins & Architecture logicielle*],
+  [Conception de l'architecture modulaire Nuxt 4 / TypeScript strict pour le moteur de billetterie et le système temps réel PopQueue.],
+
+  [*2. Développement & Sécurisation applicative*],
+  [Implémentation de composants accessibles (RGAA 4.1.2 / WCAG 2.1 AA), gestion transactionnelle PayFIP, intercepteurs API et DevSecOps.],
+
+  [*3. Industrialisation, Qualité & DevOps*],
+  [Configuration des pipelines GitHub Actions avec déploiement d'environnements éphémères de PR, couverture de tests à 85 % sous Vitest.],
+
+  [*4. Gestion de projet, Collaboration & Conduite du changement*],
+  [Arbitrages techniques concertés, durcissement des standards ESLint, co-définition des contrats d'API avec les équipes Laravel et mentorat.],
+)
+
+
 

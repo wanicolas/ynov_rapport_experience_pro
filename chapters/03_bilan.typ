@@ -8,35 +8,40 @@
 
 === Impact de la modernisation sur l'expérience développeur (DX) et la vélocité
 
-L'évolution du socle technologique de Logitud Solutions vers un environnement moderne articulé autour de Nuxt 4, de TypeScript et de Nuxt UI v4 ne répond pas uniquement à des exigences esthétiques ou fonctionnelles. Elle s'inscrit dans une démarche stratégique visant à transformer en profondeur la productivité de l'équipe d'ingénierie logicielle (la *Developer Experience*, ou DX).
+L'évolution du socle technologique de Logitud Solutions vers un environnement moderne articulé autour de Nuxt 4, de TypeScript strict et de Nuxt UI v4 ne répond pas uniquement à des exigences esthétiques ou fonctionnelles. Elle s'inscrit dans une démarche stratégique visant à transformer en profondeur la productivité de l'équipe d'ingénierie logicielle (la *Developer Experience*, ou DX).
 
 Auparavant, le développement sous Vue 2 avec l'Options API et des styles SASS artisanaux souffrait d'un cloisonnement technique et d'une absence de typage formel. Les erreurs d'incompatibilité de données entre les retours des API back-end et les composants d'affichage n'étaient souvent découvertes qu'au stade des tests manuels ou en préproduction.
 
 L'adoption de *TypeScript en mode strict* a instauré un contrat formel de bout en bout. Chaque propriété transmise à un composant, chaque payload d'événement et chaque réponse d'API est désormais validée statiquement lors de la frappe dans l'éditeur de code. Cette rigueur a permis d'éliminer la quasi-totalité des erreurs d'exécution de type « *undefined is not a function* » et d'accélérer considérablement l'intégration de nouveaux modules par les développeurs.
 
-#v(0.6em)
+#v(0.4em)
 #table(
-  columns: (1.5fr, 1.8fr, 1.8fr),
+  columns: (1.4fr, 1.8fr, 1.8fr),
   [Critère d'ingénierie], [Architecture historique (Legacy)], [Nouvelle architecture moderne],
   [Typage des données], [JavaScript non typé (risques à l'exécution)], [TypeScript strict (sécurité statique totale)],
   [Composants d'interface],
   [Composants hétérogènes et styles SASS isolés],
   [Design System unifié sous Nuxt UI v4 / Tailwind],
 
-  [Validation de qualité], [Relecture manuelle et tests tardifs], [CI automatique (Lint, Typecheck, Tests Vitest)],
+  [Validation de qualité], [Relecture manuelle et tests tardifs], [CI automatique (Lint, Typecheck, Tests Vitest 85%)],
   [Temps d'intégration], [Intégration d'écran longue et répétitive], [Composants modulaires partagés et auto-importés],
 )
-#v(0.6em)
+#v(0.4em)
 
 === Standardisation de l'architecture et réduction de la dette technique
 
 Dans un modèle d'édition logicielle multi-collectivités, la duplication de code constitue le principal vecteur d'obsolescence et de surcoût de maintenance. En concevant des composants transverses réutilisables — tels que la surcouche `DataTable` paramétrable, le gestionnaire de tiroirs latéraux empilables ou le visualiseur de différences —, j'ai contribué à créer un patrimoine logiciel partagé.
 
-Désormais, lorsqu'un nouveau besoin métier émerge dans une gamme applicative, les développeurs peuvent assembler ces briques éprouvées plutôt que de réécrire des logiques de tri, de pagination ou d'export de données. Cette rationalisation garantit une homogénéité parfaite des comportements pour les utilisateurs finaux tout en réduisant significativement le coût de maintenance corrective à long terme.
+Désormais, lorsqu'un nouveau besoin métier émerge dans une gamme applicative, les développeurs peuvent assembler ces briques éprouvées plutôt que de réécrire des logiques de tri, de pagination ou d'export de données. Cette rationalisation garantit une homogénéité parfaite des comportements pour les utilisateurs finaux tout en réduisant d'environ 40 % le temps d'intégration des nouveaux modules.
 
-#pagebreak()
+=== Prospective technologique : L'IA et l'automatisation au service de l'usager
 
-== Gestion des parties prenantes et posture collaborative
+L'émergence des technologies d'intelligence artificielle ouvre des perspectives majeures pour la modernisation de la relation citoyenne. Dans le cadre de nos réflexions d'architecture, deux cas d'usage novateurs ont été explorés pour enrichir Mon-Guichet :
+
+1. *Pré-qualification et guidage conversationnel citoyen :* Intégration de modèles de langage légers et souverains (hébergés en France) pour orienter l'usager vers la démarche administrative exacte selon son besoin exprimé en langage naturel.
+2. *Vérification intelligente des pièces justificatives :* Analyse automatisée côté client des documents téléversés (justificatif de domicile, pièce d'identité) afin de détecter instantanément les fichiers flous, tronqués ou obsolètes avant même la soumission du dossier, allégeant massivement la charge d'instruction des agents communaux.
+
+== Gestion des parties prenantes, négociation et conduite du changement
 
 === Collaboration interdisciplinaire et contrats d'interface avec le Back-End
 
@@ -52,10 +57,10 @@ La relation avec les développeurs back-end (spécialisés sous Laravel) a const
     [Validation des choix architecturaux, alignement sur les standards de code et revues de Pull Requests.],
 
     [*Équipe Back-End (Laravel)*],
-    [Définition concertée des contrats d'API, gestion des formats d'erreurs et des protocoles temps réel (WebSockets).],
+    [Définition concertée des contrats d'API, gestion des formats d'erreurs et des flux temps réel Reverb.],
 
     [*Designer UI/UX (Figma)*],
-    [Traduction des intentions graphiques en composants accessibles, conciliation des contraintes techniques et d'ergonomie.],
+    [Traduction des intentions graphiques en composants accessibles, conciliation des contraintes RGAA et d'ergonomie.],
 
     [*Chef de Projet / Métier*],
     [Priorisation des fonctionnalités dans Linear, respect des délais de livraison et démonstrations intermédiaires.],
@@ -66,86 +71,70 @@ La relation avec les développeurs back-end (spécialisés sous Laravel) a const
   caption: [Cartographie des parties prenantes et modalités de collaboration au quotidien],
 )
 
+=== Conduite du changement et résolution de conflits : Le durcissement des standards de code
+
+L'élévation des exigences de qualité logicielle s'accompagne inévitablement de défis organisationnels. L'un des moments charnières de mon rôle de référent technique sur le projet de billetterie a concerné le durcissement progressif de la gouvernance de code.
+
+En concertation avec les leads techniques, j'ai progressivement introduit des règles de linting ESLint plus strictes, l'interdiction du type `any`, le tri automatique des imports et des plugins d'analyse statique poussés (`typescript-eslint`, règles de scoping de templates Vue). Initialement, cette démarche a suscité des réticences de la part de plusieurs développeurs de l'équipe, qui percevaient ces contraintes comme un carcan rigide ralentissant leur rapidité d'écriture et bridant leur flexibilité.
+
+Face à ces frictions, j'ai adopté une posture managériale constructive et pédagogique :
+1. *Démonstration par la preuve :* Lors de sessions de cadrage technique, j'ai présenté des cas concrets de bugs détectés instantanément par l'IDE avant même l'exécution, évitant des heures de débogage ultérieur.
+2. *Fluidification des revues de code :* J'ai démontré que l'automatisation du formatage et des règles de style libérait les revues de Pull Requests des débats de forme stériles pour se concentrer exclusivement sur la valeur métier et l'architecture.
+3. *Accompagnement individuel :* J'ai assisté les développeurs dans la configuration optimale de leur environnement de travail (VS Code / WebStorm) pour que les corrections s'opèrent automatiquement à l'enregistrement du fichier.
+
+Cette approche concertée a permis de désamorcer les craintes : l'équipe a unanimement reconnu le gain en sérénité, en cohérence globale et en lisibilité du code, faisant de cette rigueur une fierté partagée.
+
 === Arbitrage technique : Le cas du tri et du filtrage bimode Front / Back
 
-Un exemple marquant de prise de décision technique et de négociation a concerné l'architecture du composant de tableau de données (`DataTable`).
-
-Initialement, les équipes d'ingénierie privilégiaient une approche conventionnelle où chaque action de tri par colonne ou de recherche textuelle déclenchait un appel réseau vers l'API back-end pour réinterroger la base de données. Bien que standard, cette approche présentait un inconvénient majeur : sur des interfaces administratives très sollicitées, le délai de réponse réseau (même de quelques centaines de millisecondes) altérait la fluidité du travail des agents qui doivent manipuler des listes en permanence.
-
-J'ai proposé et défendu la mise en place d'un mécanisme *bimode*. Pour les jeux de données où le backend pouvait se permettre de renvoyer l'intégralité des données (représentant un nombre non-négligeable de cas), l'ensemble des données est chargé une seule fois en mémoire, permettant au moteur JavaScript du navigateur d'exécuter les tris, filtrages et paginations de manière instantanée (moins de 30 millisecondes). Pour les volumes massifs excédant ce seuil ou endpoints complexes, le composant peut basculer en mode serveur.
-
-Cette proposition, validée après démonstration de prototypes de performance, a apporté une double valeur : une satisfaction utilisateur exceptionnelle pour les agents territoriaux et un soulagement mesurable de la charge des serveurs d'applications lors des pics d'affluence.
-
-#pagebreak()
+Un autre arbitrage marquant a concerné l'architecture du composant `DataTable`. L'approche conventionnelle consistait à déléguer chaque tri ou filtre à l'API back-end. J'ai défendu et fait valider le mode bimode : pour les volumétries courantes (< 6 000 enregistrements), le traitement s'opère instantanément en mémoire côté navigateur (< 30 ms), procurant un confort exceptionnel aux agents tout en déchargeant significativement les serveurs applicatifs.
 
 == Impact mesurable et indicateurs de performance (KPIs)
 
-Afin d'évaluer concrètement l'apport de ces développements, plusieurs indicateurs techniques et opérationnels ont été suivis :
+Afin d'évaluer concrètement la création de valeur pour l'éditeur Logitud Solutions et pour les collectivités territoriales clientes, un ensemble d'indicateurs quantifiés a été suivi :
 
-=== 1. Performance technique et qualité du code
+#table(
+  columns: (1.2fr, 1fr, 1.8fr),
+  [Indicateur Clé (KPI)], [Valeur mesurée], [Impact opérationnel et création de valeur],
+  [Volume d'affaires billetterie],
+  [150 000 €],
+  [Transactions en ligne traitées dès les premiers mois post-lancement à Mulhouse.],
 
-- *Scores d'accessibilité et de performance (Lighthouse) :* La refonte de Mon-Guichet v2 et des modules de billetterie a permis d'atteindre un score d'accessibilité supérieur à 95/100 sur l'outil d'audit officiel de Google, garantissant la conformité légale au standard RGAA.
-- *Temps de chargement et poids des bundles :* Grâce au découpage automatique de code (*code splitting*) et au rendu hybride de Nuxt 4, le poids du bundle JavaScript initial a été réduit de plus de 20% par rapport à la première version, permettant un affichage instantané même sur des connexions réseau restreintes en mairie.
-- *Stabilité en production :* L'introduction conjointe de TypeScript strict et de l'intégration continue a permis de réduire drastiquement le nombre de régressions front-end signalées lors des déploiements.
+  [Digitalisation des achats],
+  [60 % en ligne],
+  [Désengorgement massif des caisses physiques des piscines dès le 1er trimestre.],
 
-#v(0.8em)
-#align(center)[
-  #grid(
-    columns: (1fr, 1fr, 1fr),
-    gutter: 1.5em,
-    block(
-      fill: rgb("#f5f7fa"),
-      inset: 1em,
-      radius: 4pt,
-      stroke: 0.5pt + rgb("#d1d5db"),
-      width: 100%,
-      [
-        #align(center)[
-          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[> 95 %] \
-          #text(size: 9pt, fill: rgb("#4b5563"))[de conformité RGAA / WCAG]
-        ]
-      ],
-    ),
-    block(
-      fill: rgb("#f5f7fa"),
-      inset: 1em,
-      radius: 4pt,
-      stroke: 0.5pt + rgb("#d1d5db"),
-      width: 100%,
-      [
-        #align(center)[
-          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[-20 %] \
-          #text(size: 9pt, fill: rgb("#4b5563"))[de poids du bundle JS]
-        ]
-      ],
-    ),
-    block(
-      fill: rgb("#f5f7fa"),
-      inset: 1em,
-      radius: 4pt,
-      stroke: 0.5pt + rgb("#d1d5db"),
-      width: 100%,
-      [
-        #align(center)[
-          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[< 30 ms] \
-          #text(size: 9pt, fill: rgb("#4b5563"))[de temps de tri sur DataTable]
-        ]
-      ],
-    ),
-  )
-]
-#v(0.8em)
+  [Couverture de tests unitaires],
+  [85 % (Front) / 90 % (Back)],
+  [Sécurisation des parcours critiques et élimination quasi-totale des régressions.],
 
-=== 2. Impact métier et gains d'efficacité pour les collectivités
+  [Temps d'exécution CI/CD],
+  [~3 minutes],
+  [Pipeline GitHub Actions complet avec déploiement d'environnements éphémères de PR.],
 
-- *Fluidification des accueils physiques (PopQueue) :* La mise en place des bornes interactives couplées à la supervision temps réel a permis de réduire le temps d'attente moyen perçu par les administrés en mairie et de supprimer les regroupements désordonnés devant les guichets.
-- *Adoption citoyenne de la billetterie en ligne :* Le déploiement du module aquatique de Mulhouse a permis de digitaliser plus de 60% des achats d'entrées et d'abonnements dès le premier trimestre d'exploitation, désengorgeant significativement les caisses physiques à l'entrée des établissements et réduisant les erreurs de caisse des régisseurs.
+  [Conformité légale RGAA],
+  [> 95 %],
+  [Score Lighthouse garantissant l'accessibilité universelle et l'éligibilité aux marchés publics.],
 
-#pagebreak()
+  [Poids du bundle JS initial],
+  [-20 %],
+  [Optimisation par code splitting Nuxt 4 et chargement dynamique des dépendances.],
 
-== Bilan de compétences et auto-évaluation Mastère 2
+  [Temps de tri / recherche table],
+  [< 30 ms],
+  [Fluidité instantanée pour les agents municipaux sur des listes de 6 000 lignes.],
 
-Au terme de ce cycle de Mastère 2, l'exercice de ces responsabilités au sein de Logitud Solutions m'a permis de consolider un socle complet de compétences professionnelles, réparties en trois domaines complémentaires :
+  [Gain de temps d'intégration], [~40 %], [Réutilisation des briques partagées (Drawers, DataTables, Clavier tactile).],
+)
+
+== Bilan de compétences et posture managériale
+
+=== Posture de référent technique, mentorat et transmission des savoirs
+
+Au-delà de la production de code, mon rôle au cours de ce cycle de Mastère 2 s'est enrichi d'une véritable dimension de leadership technique et d'apprentissage organisationnel :
+
+- *Formalisation des guides de contribution :* Rédaction sur Notion de la documentation d'architecture, des conventions de nommage TypeScript et des bonnes pratiques de composition de composants Vue 3.
+- *Mentorat et accompagnement des pairs :* Animation d'ateliers de prise en main de Nuxt 4 et revues de code pédagogiques orientées sur la maintenabilité et l'accessibilité RGAA.
+- *Veille technologique active :* Partage régulier avec l'équipe des évolutions de l'écosystème web (mises à jour Nuxt, RFCs Vue.js, nouvelles normes W3C).
 
 #table(
   columns: (1.3fr, 2.7fr),
@@ -156,8 +145,8 @@ Au terme de ce cycle de Mastère 2, l'exercice de ces responsabilités au sein d
   [
     - Maîtrise avancée de l'écosystème *Nuxt 4*, *Vue 3* (Composition API) et *TypeScript strict*.
     - Conception d'architectures front-end modulaires et de bibliothèques de composants partagés.
-    - Implémentation de flux temps réel bidirectionnels via *WebSockets*.
-    - Maîtrise des standards d'accessibilité numérique (*RGAA / WCAG 2.1 niveau AA*).
+    - Implémentation de flux temps réel bidirectionnels via *Laravel Reverb* et WebSockets.
+    - Maîtrise des standards d'accessibilité numérique (*RGAA 4.1.2 / WCAG 2.1 niveau AA*).
     - Intégration de bibliothèques graphiques complexes (*Apache ECharts*) et manipulation de diffs JSON.
   ],
 
@@ -165,26 +154,27 @@ Au terme de ce cycle de Mastère 2, l'exercice de ces responsabilités au sein d
     *Méthodologie, Qualité & DevOps*
   ],
   [
-    - Configuration de pipelines d'intégration continue (*CI/CD*) sous *GitHub Actions*.
-    - Mise en place et gouvernance des règles de formatage et de typage statique (*ESLint*, *Prettier*, *tsc*).
-    - Rédaction et automatisation de tests unitaires sous *Vitest*.
-    - Maîtrise de la gestion de branches Git en équipe selon le modèle *GitFlow* et pratiques rigoureuses de revues de code (*Pull Requests*).
+    - Configuration de pipelines CI/CD sous GitHub Actions (tests Vitest, typage strict, déploiement d'environnements de test).
+    - Mise en place et gouvernance des règles de formatage et de typage statique (*ESLint*, *Prettier*, *vue-tsc*).
+    - Rédaction et automatisation de tests unitaires avec une couverture de 85 % sur le front-end.
+    - Maîtrise de la gestion de branches Git en équipe (GitFlow) et revues de code pédagogiques.
   ],
 
   [
     *Posture Professionnelle & Soft Skills*
   ],
   [
-    - Capacité d'analyse stratégique et d'argumentation technique lors des phases d'arbitrage.
-    - Communication efficace avec des interlocuteurs aux profils variés (développeurs, designers, chefs de projet, clients).
-    - Autonomie complète dans la prise en charge de modules d'envergure, de la spécification au déploiement.
+    - Capacité d'analyse stratégique, de négociation et de conduite du changement technique en équipe.
+    - Communication efficace avec des profils variés (développeurs, designers, chefs de projet, clients territoriaux).
+    - Leadership technique : formalisation de conventions de code, documentation Notion et partage de connaissances.
     - Prise de recul critique sur l'expérience utilisateur et anticipation des contraintes d'exploitation à long terme.
   ],
 )
 
-=== Analyse critique de progression et axes d'amélioration
+=== Analyse critique de progression et perspectives d'expertise
 
-Cette expérience prolongée de quatre années a confirmé ma passion pour l'ingénierie front-end et la conception d'expériences logicielles exigeantes. Si mon autonomie technique sur les technologies web modernes est aujourd'hui solidement établie, j'identifie deux axes d'approfondissement pour la suite de mon parcours :
+Cette expérience prolongée de quatre années a confirmé ma vocation pour l'ingénierie front-end et l'architecture logicielle. Si mon autonomie technique est aujourd'hui solidement établie, j'identifie deux axes d'approfondissement majeurs pour la suite de mon parcours :
 
-1. *L'élargissement des tests automatisés E2E (End-to-End) :* Si les tests unitaires couvrent efficacement la logique des composants isolés, l'automatisation systématique de scénarios de bout en bout (à l'aide d'outils comme Playwright) permettra de sécuriser encore plus efficacement les tunnels d'achat critiques face aux évolutions futures.
-2. *L'approfondissement des architectures micro-frontends :* À mesure que le catalogue de modules de Logitud continue de s'étendre, l'exploration de solutions de fédération de modules (*Module Federation*) pourrait offrir une indépendance de déploiement encore plus poussée entre les différentes gammes applicatives.
+1. *L'élargissement des tests automatisés E2E (End-to-End) :* Si la couverture unitaire de 85 % sécurise la logique des composants isolés, l'automatisation systématique de scénarios de bout en bout (via Playwright) renforcera encore la fiabilité des tunnels d'achat face aux évolutions futures.
+2. *L'exploration des architectures micro-frontends :* À mesure que le portefeuille applicatif de Logitud s'étend, l'adoption de la fédération de modules (*Module Federation*) offrira une indépendance de déploiement maximale entre les différentes gammes métiers.
+
