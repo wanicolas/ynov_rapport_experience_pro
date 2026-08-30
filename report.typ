@@ -130,6 +130,18 @@
 
 #include "chapters/01_introduction.typ"
 
+#pagebreak()
+#include "chapters/02_missions.typ"
+
+#pagebreak()
+#include "chapters/03_bilan.typ"
+
+#pagebreak()
+#include "chapters/04_conclusion.typ"
+
+
+
+
 
 
 // -------------------------------------------------------------
