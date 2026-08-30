@@ -181,10 +181,70 @@ Le système propose un mode dédié « Vente guichet » pour les agents d'accuei
 
 === Sécurité transactionnelle, interfaçage PayFIP et résilience réseau
 
-La manipulation de deniers publics impose une sécurité sans faille sur l'ensemble de la chaîne de paiement :
+==== Les enjeux de la gestion des deniers publics et des passerelles d'État
 
-- *Interfaçage avec les passerelles bancaires publiques (PayFIP / TIPI) :* Le tunnel de paiement s'interface avec la régie des finances publiques (DGFiP). Afin d'éviter les doubles débits ou les commandes fantômes en cas de rupture de connexion côté usager, le moteur repose sur un mécanisme d'idempotence avec réconciliation asynchrone par *webhooks signés cryptographiquement*.
-- *Intercepteur API résilient (`useApiFetch`) :* J'ai développé un composable encapsulant `ofetch` pour gérer le rafraîchissement automatique des jetons de session, l'injection des headers de traçabilité et la sérialisation typée des erreurs HTTP.
+La gestion des transactions financières dans le secteur public local obéit à des règles comptables et réglementaires d'une extrême rigueur. Contrairement au commerce électronique traditionnel où les paiements transitent par des prestataires privés (Stripe, Adyen), les régies municipales sont tenues de s'interfacer avec la passerelle de télépaiement de la Direction Générale des Finances Publiques (DGFiP) : *PayFIP* (anciennement TIPI).
+
+Dans ce cadre, l'intégrité de la chaîne transactionnelle ne tolère aucun écart : tout double débit, toute commande validée sans encaissement certifié ou toute perte de session lors d'un paiement constitue une anomalie comptable majeure pour le régisseur municipal.
+
+==== Le cycle de vie d'une transaction et l'architecture d'idempotence
+
+Pour garantir une robustesse absolue, l'architecture du moteur de billetterie repose sur un cycle de vie transactionnel en quatre étapes, découplant strictement les flux synchrones usager des validations asynchrones d'État :
+
+#v(0.4em)
+#align(center)[
+  #block(
+    fill: rgb("#f8fafc"),
+    stroke: 0.5pt + rgb("#cbd5e1"),
+    inset: 0.8em,
+    radius: 4pt,
+    width: 100%,
+    [
+      #text(weight: "bold", size: 10pt)[Cycle de vie d'une transaction sécurisée PayFIP] \
+      #v(0.4em)
+      #grid(
+        columns: (1fr, 1fr, 1.1fr, 1fr),
+        gutter: 0.5em,
+        block(fill: rgb("#f1f5f9"), stroke: 0.5pt + rgb("#cbd5e1"), inset: 0.5em, radius: 3pt)[
+          #align(center)[
+            #text(weight: "bold", size: 8pt, fill: rgb("#334155"))[1. Verrouillage]\
+            #text(size: 7pt, fill: rgb("#475569"))[Réservation créneau\ Verrou temporaire\ (TTL 10 min)]
+          ]
+        ],
+        block(fill: rgb("#eff6ff"), stroke: 0.5pt + rgb("#93c5fd"), inset: 0.5em, radius: 3pt)[
+          #align(center)[
+            #text(weight: "bold", size: 8pt, fill: rgb("#1e40af"))[2. Redirection]\
+            #text(size: 7pt, fill: rgb("#1e3a8a"))[Clé d'idempotence\ Empreinte SHA-256\ Portail PayFIP DGFiP]
+          ]
+        ],
+        block(fill: rgb("#fef3c7"), stroke: 0.5pt + rgb("#fcd34d"), inset: 0.5em, radius: 3pt)[
+          #align(center)[
+            #text(weight: "bold", size: 8pt, fill: rgb("#92400e"))[3. Double Canal]\
+            #text(size: 7pt, fill: rgb("#78350f"))[Synchrone : retour web\ Asynchrone : Webhook\ signé serveur à serveur]
+          ]
+        ],
+        block(fill: rgb("#dcfce7"), stroke: 0.5pt + rgb("#86efac"), inset: 0.5em, radius: 3pt)[
+          #align(center)[
+            #text(weight: "bold", size: 8pt, fill: rgb("#166534"))[4. Clôture]\
+            #text(size: 7pt, fill: rgb("#14532d"))[Validation finale\ Réconciliation régie\ Titre dématérialisé]
+          ]
+        ],
+      )
+    ],
+  )
+]
+#v(0.4em)
+
+1. *Réservation et verrouillage temporaire des créneaux :* Dès qu'un usager sélectionne un créneau à jauge limitée (cours de natation, aquagym), un verrou distribué en mémoire vive (*Redis Lock*) est appliqué pour une durée déterminée (10 minutes). Ce mécanisme prévient tout risque de surréservation (*overbooking*) sans bloquer définitivement les places si l'usager quitte le tunnel avant le paiement.
+2. *Initialisation et clé d'idempotence unique :* Lors du passage à la caisse, l'application génère un identifiant cryptographique unique de commande associé au panier. Cet identifiant sert de clé d'idempotence : même si l'usager clique plusieurs fois consécutivement sur « Valider et payer », une seule et unique session de paiement est initiée auprès du serveur PayFIP.
+3. *Le principe du double canal (Synchrone vs Asynchrone) :*
+  - *Le canal de retour synchrone (Navigateur) :* Après le paiement sur la plateforme sécurisée de la DGFiP, l'administré est redirigé vers l'interface Mon-Guichet. Cependant, ce canal est par essence vulnérable aux aléas clients (fermeture brutale du navigateur, panne de batterie mobile, perte de connexion 4G/5G). L'interface affiche donc un statut intermédiaire rassurant (« Paiement en cours de confirmation ») sans valider définitivement la commande à ce seul signal.
+  - *Le canal asynchrone sécurisé (Webhook Serveur à Serveur) :* En parallèle, la DGFiP émet une requête HTTP POST directe vers l'API de Logitud, signée par une empreinte *HMAC SHA-256*. C'est la réception et la vérification cryptographique de cette notification qui constitue la seule preuve formelle d'encaissement, déclenchant l'enregistrement comptable définitif.
+4. *Réconciliation comptable et mise à disposition du titre :* Dès la validation de la notification bancaire, le statut de la commande bascule en « Confirmée », le verrou temporaire est transformé en inscription définitive en base de données, et l'usager retrouve immédiatement ses titres d'accès dématérialisés dans son espace citoyen personnel ainsi que par courriel de confirmation.
+
+==== Intercepteur API résilient et gestion des erreurs front-end
+
+Côté interface utilisateur, la résilience aux coupures réseau et l'expérience utilisateur ont été renforcées via un composable d'interception d'API (`useApiFetch`). Il encapsule les requêtes `ofetch`, gère automatiquement le renouvellement des jetons d'authentification et formate les retours d'erreurs :
 
 ```typescript
 // Composable d'interception et de gestion d'erreurs API

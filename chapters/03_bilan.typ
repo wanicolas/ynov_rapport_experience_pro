@@ -34,12 +34,75 @@ Dans un modèle d'édition logicielle multi-collectivités, la duplication de co
 
 Désormais, lorsqu'un nouveau besoin métier émerge dans une gamme applicative, les développeurs peuvent assembler ces briques éprouvées plutôt que de réécrire des logiques de tri, de pagination ou d'export de données. Cette rationalisation garantit une homogénéité parfaite des comportements pour les utilisateurs finaux tout en réduisant d'environ 40 % le temps d'intégration des nouveaux modules.
 
-=== Prospective technologique : L'IA et l'automatisation au service de l'usager
+=== Prospective technologique : Étude exploratoire de l'IA et questions en suspens
 
-L'émergence des technologies d'intelligence artificielle ouvre des perspectives majeures pour la modernisation de la relation citoyenne. Dans le cadre de nos réflexions d'architecture, deux cas d'usage novateurs ont été explorés pour enrichir Mon-Guichet :
+==== Une démarche de R&D exploratoire et responsable
 
-1. *Pré-qualification et guidage conversationnel citoyen :* Intégration de modèles de langage légers et souverains (hébergés en France) pour orienter l'usager vers la démarche administrative exacte selon son besoin exprimé en langage naturel.
-2. *Vérification intelligente des pièces justificatives :* Analyse automatisée côté client des documents téléversés (justificatif de domicile, pièce d'identité) afin de détecter instantanément les fichiers flous, tronqués ou obsolètes avant même la soumission du dossier, allégeant massivement la charge d'instruction des agents communaux.
+L'émergence rapide des technologies d'intelligence artificielle générative et de vision par ordinateur ouvre des opportunités de modernisation considérables pour la relation citoyenne. Au sein de Logitud Solutions, l'intégration potentielle de ces briques au cœur de la plateforme *Mon-Guichet* fait actuellement l'objet d'une *étude prospective approfondie en R&D pour les versions futures*.
+
+Toutefois, le déploiement d'intelligences artificielles dans le secteur public local ne peut être guidé par un simple effet de mode technologique : il impose une grille d'analyse lucide, mesurant les bénéfices attendus à l'aune des nombreuses questions techniques, juridiques, éthiques et financières qui demeurent aujourd'hui en suspens.
+
+#v(0.4em)
+#align(center)[
+  #block(
+    fill: rgb("#f8fafc"),
+    stroke: 0.5pt + rgb("#cbd5e1"),
+    inset: 0.8em,
+    radius: 4pt,
+    width: 100%,
+    [
+      #text(weight: "bold", size: 10pt)[Axes de R&D en étude prospective et questionnements associés] \
+      #v(0.4em)
+      #grid(
+        columns: (1fr, 1fr, 1fr),
+        gutter: 0.5em,
+        block(fill: rgb("#eff6ff"), stroke: 0.5pt + rgb("#93c5fd"), inset: 0.5em, radius: 3pt)[
+          #align(center)[
+            #text(weight: "bold", size: 8pt, fill: rgb("#1e40af"))[1. RAG Territorial]\
+            #text(size: 7pt, fill: rgb("#1e3a8a"))[Guidage conversationnel\ Question en suspens :\ Hallucinations & responsabilité]
+          ]
+        ],
+        block(fill: rgb("#fef3c7"), stroke: 0.5pt + rgb("#fcd34d"), inset: 0.5em, radius: 3pt)[
+          #align(center)[
+            #text(weight: "bold", size: 8pt, fill: rgb("#92400e"))[2. Vision & OCR Client]\
+            #text(size: 7pt, fill: rgb("#78350f"))[Pré-contrôle justificatifs\ Question en suspens :\ Faux négatifs & AI Act]
+          ]
+        ],
+        block(fill: rgb("#f1f5f9"), stroke: 0.5pt + rgb("#cbd5e1"), inset: 0.5em, radius: 3pt)[
+          #align(center)[
+            #text(weight: "bold", size: 8pt, fill: rgb("#334155"))[3. Sobriété & Coûts]\
+            #text(size: 7pt, fill: rgb("#475569"))[Inférence souveraine\ Question en suspens :\ ROI GPU vs Déterministe]
+          ]
+        ],
+      )
+    ],
+  )
+]
+#v(0.4em)
+
+==== Piste 1 en étude : L'orientation citoyenne par RAG territorial
+
+Le premier cas d'usage à l'étude concerne la mise en place d'un assistant d'orientation citoyenne s'appuyant sur une architecture de génération augmentée par récupération (*Retrieval-Augmented Generation* ou RAG). L'objectif serait de permettre aux administrés d'exprimer leurs besoins en langage naturel (« _Je viens d'emménager, comment inscrire mon enfant à la cantine et faire ma carte de stationnement ?_ ») et de les orienter instantanément vers les démarches administratives appropriées.
+
+Cependant, plusieurs verrous majeurs font l'objet d'arbitrages critiques :
+- *Risque d'hallucination et engagement de la responsabilité publique :* Dans l'administration, une information erronée (ex: délais de recours contentieux, conditions de ressources erronées pour une aide sociale) engage directement la responsabilité juridique de la mairie. Comment garantir un taux d'exactitude factuelle de 100 % sur des corpus administratifs complexes ?
+- *Souveraineté des données et conformité SecNumCloud :* Les requêtes citoyennes peuvent contenir des éléments de vie privée. Il est exclu d'utiliser des APIs d'acteurs commerciaux extra-européens. Le déploiement de modèles de langage *open-weights* (ex: Mistral AI) sur des infrastructures souveraines qualifiées SecNumCloud représente un coût d'inférence GPU élevé, posant la question de l'accessibilité financière pour les communes de taille intermédiaire.
+- *Volatilité de la réglementation locale :* Les règlements intérieurs, tarifs municipaux et délibérations évoluent à chaque conseil municipal. Le maintien d'un index vectoriel parfaitement synchronisé sans introduire d'anachronismes documentaires constitue un défi d'ingénierie non résolu.
+
+==== Piste 2 en étude : Le pré-contrôle des pièces justificatives par vision
+
+Le second axe d'étude porte sur l'analyse automatisée des pièces justificatives téléversées par les usagers (justificatif de domicile, pièce d'identité, attestation de quotient familial) afin d'assister les agents communaux dans leur travail d'instruction quotidien.
+
+Ce chantier soulève également d'importantes questions en suspens :
+- *Inférence côté client (WebAssembly / On-Device) vs Inférence serveur :* L'exécution locale de modèles légers de vision par ordinateur via WebAssembly (Tesseract WASM) au sein du navigateur de l'administré présenterait l'avantage de préserver une confidentialité absolue (aucun document n'est envoyé à un serveur tiers avant validation) et d'économiser de la bande passante. En contrepartie, les disparités d'équipements (smartphones d'entrée de gamme) posent un risque d'échec d'exécution ou de ralentissement sévère pour l'utilisateur.
+- *Risque de faux négatifs et rupture d'accès aux droits :* Le rejet algorithmique automatisé d'un document froissé ou mal cadré, mais pourtant parfaitement exploitable par un œil humain, risque de créer de la frustration et d'exclure les administrés les plus éloignés du numérique. La décision humaine de rejet doit impérativement rester la seule règle applicable.
+- *Conformité avec l'AI Act européen :* L'Union Européenne classe les systèmes d'IA intervenant dans l'accès aux services publics et aux prestations sociales comme des systèmes à haut risque, imposant des obligations draconiennes d'auditabilité, d'évaluation des biais et de documentation technique.
+
+==== Arbitrage fondamental : Sobriété numérique vs IA probabiliste
+
+L'ensemble de ces réflexions prospectives conduit à une interrogation centrale d'architecture logicielle : _l'apport d'une brique d'IA probabiliste compense-t-il la complexité opérationnelle, la consommation énergétique et les coûts d'infrastructure par rapport à une automatisation déterministe rigoureuse ?_
+
+Pour l'heure, Logitud Solutions privilégie la perfection ergonomique de ses formulaires guidés, la validation statique stricte des données de saisie et l'accessibilité universelle, tout en maintenant cette cellule de veille technologique active pour intégrer l'IA lorsque le cadre réglementaire, technique et économique offrira toutes les garanties de maturité.
 
 == Gestion des parties prenantes, négociation et conduite du changement
 
