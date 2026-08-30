@@ -25,10 +25,10 @@ L'histoire récente de la société est marquée par une phase de consolidation 
       width: 100%,
       [
         #align(center)[
-          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[35+ ans] \
-          #text(size: 9pt, fill: rgb("#4b5563"))[d'expertise dans l'édition logicielle publique]
+          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[37+ ans] \
+          #text(size: 9pt, fill: rgb("#4b5563"))[d'expertise en logiciel public]
         ]
-      ]
+      ],
     ),
     block(
       fill: rgb("#f5f7fa"),
@@ -38,10 +38,11 @@ L'histoire récente de la société est marquée par une phase de consolidation 
       width: 100%,
       [
         #align(center)[
-          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[6 000+] \
-          #text(size: 9pt, fill: rgb("#4b5563"))[collectivités territoriales clientes en France]
+          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[4 000+] \
+          #text(size: 9pt, fill: rgb("#4b5563"))[collectivités
+            clientes en France]
         ]
-      ]
+      ],
     ),
     block(
       fill: rgb("#f5f7fa"),
@@ -51,11 +52,11 @@ L'histoire récente de la société est marquée par une phase de consolidation 
       width: 100%,
       [
         #align(center)[
-          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[99 / 100] \
-          #text(size: 9pt, fill: rgb("#4b5563"))[plus grandes communes françaises équipées]
+          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[14] \
+          #text(size: 9pt, fill: rgb("#4b5563"))[logiciels métiers]
         ]
-      ]
-    )
+      ],
+    ),
   )
 ]
 #v(0.8em)
@@ -102,7 +103,7 @@ Ce double positionnement impose au développement front-end d'adopter deux ergon
       #text(weight: "bold", size: 11pt)[Objectif stratégique de la modernisation de Mon-Guichet] \
       #v(0.4em)
       Transformer un système d'information communal historiquement cloisonné en un écosystème SaaS modulaire, garantissant une expérience fluide pour le citoyen et un traitement unifié et automatisé pour les agents municipaux.
-    ]
+    ],
   )
 ]
 
@@ -152,6 +153,7 @@ Mon parcours au sein de Logitud Solutions s'inscrit dans une durée continue de 
     *Développeur Front-End Junior* \
     Exécution sous supervision, assimilation des bonnes pratiques et découverte du métier.
   ],
+
   [
     *2024 - 2026* \
     Mastère Expert Web \
@@ -166,7 +168,7 @@ Mon parcours au sein de Logitud Solutions s'inscrit dans une durée continue de 
   [
     *Référent Technique Front-End* \
     Autonomie de conception, arbitrages techniques, garant des standards de code et de la DX.
-  ]
+  ],
 )
 
 === Évolution du rôle vers la gouvernance technique front-end

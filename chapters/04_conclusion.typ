@@ -39,7 +39,7 @@ Mon ambition est de continuer à concevoir des architectures front-end modernes,
   #link("https://nuxt.com/docs")[https://nuxt.com/docs] — Guide d'architecture, Composition API, SSR et structure applicative.
 
 2. *Documentation officielle Nuxt UI v4 & Tailwind CSS :* \
-  #link("https://ui.nuxt.com")[https://ui.nuxt.com] & #link("https://tailwindcss.com/docs")[https://tailwindcss.com/docs] — Système de composants headless et utilitaires CSS.
+  #link("https://ui.nuxt.com")[https://ui.nuxt.com] & #link("https://tailwindcss.com/docs")[https://tailwindcss.com/docs] — Système de composants et utilitaires CSS.
 
 3. *TypeScript Handbook & Strict Mode Guidelines :* \
   #link("https://www.typescriptlang.org/docs/handbook")[https://www.typescriptlang.org/docs/handbook] — Typage statique, inférence et sécurité de code.

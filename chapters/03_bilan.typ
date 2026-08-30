@@ -72,7 +72,7 @@ Un exemple marquant de prise de décision technique et de négociation a concern
 
 Initialement, les équipes d'ingénierie privilégiaient une approche conventionnelle où chaque action de tri par colonne ou de recherche textuelle déclenchait un appel réseau vers l'API back-end pour réinterroger la base de données. Bien que standard, cette approche présentait un inconvénient majeur : sur des interfaces administratives très sollicitées, le délai de réponse réseau (même de quelques centaines de millisecondes) altérait la fluidité du travail des agents qui doivent manipuler des listes en permanence.
 
-J'ai proposé et défendu la mise en place d'un mécanisme *bimode*. Pour les jeux de données où le backend pouvait se permettre de renvoyer l'intégralité des données (représentant un nombre non-négligeable de cas), l'ensemble des données est chargé une seule fois en mémoire, permettant au moteur JavaScript du navigateur d'exécuter les tris, filtrages et paginations de manière instantanée (moins de 5 millisecondes). Pour les volumes massifs excédant ce seuil ou endpoints complexes, le composant peut basculer en mode serveur.
+J'ai proposé et défendu la mise en place d'un mécanisme *bimode*. Pour les jeux de données où le backend pouvait se permettre de renvoyer l'intégralité des données (représentant un nombre non-négligeable de cas), l'ensemble des données est chargé une seule fois en mémoire, permettant au moteur JavaScript du navigateur d'exécuter les tris, filtrages et paginations de manière instantanée (moins de 30 millisecondes). Pour les volumes massifs excédant ce seuil ou endpoints complexes, le composant peut basculer en mode serveur.
 
 Cette proposition, validée après démonstration de prototypes de performance, a apporté une double valeur : une satisfaction utilisateur exceptionnelle pour les agents territoriaux et un soulagement mesurable de la charge des serveurs d'applications lors des pics d'affluence.
 
@@ -102,7 +102,7 @@ Afin d'évaluer concrètement l'apport de ces développements, plusieurs indicat
       [
         #align(center)[
           #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[> 95 %] \
-          #text(size: 9pt, fill: rgb("#4b5563"))[de conformité accessibilité RGAA / WCAG]
+          #text(size: 9pt, fill: rgb("#4b5563"))[de conformité RGAA / WCAG]
         ]
       ],
     ),
@@ -114,7 +114,7 @@ Afin d'évaluer concrètement l'apport de ces développements, plusieurs indicat
       width: 100%,
       [
         #align(center)[
-          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[- 20 %] \
+          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[-20 %] \
           #text(size: 9pt, fill: rgb("#4b5563"))[de poids du bundle JS]
         ]
       ],
@@ -127,8 +127,8 @@ Afin d'évaluer concrètement l'apport de ces développements, plusieurs indicat
       width: 100%,
       [
         #align(center)[
-          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[< 5 ms] \
-          #text(size: 9pt, fill: rgb("#4b5563"))[de temps de tri instantané sur DataTable]
+          #text(size: 16pt, weight: "bold", fill: rgb("#1e3a8a"))[< 30 ms] \
+          #text(size: 9pt, fill: rgb("#4b5563"))[de temps de tri sur DataTable]
         ]
       ],
     ),
