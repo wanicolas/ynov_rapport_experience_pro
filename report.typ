@@ -191,7 +191,8 @@
 
     #v(6em)
     #text(size: 9pt, fill: rgb("#888888"))[
-      Ce document a été compilé avec le moteur de composition #link("https://typst.app")[Typst], gratuit et open-source sous licence Apache 2.0.
+      Ce document est open-source et peut être consulté sur #link("https://github.com/wanicolas/ynov_rapport_experience_pro")[GitHub]. \
+      Il a été compilé avec le moteur de composition #link("https://typst.app")[Typst], gratuit et open-source sous licence Apache 2.0.
     ]
   ]
 ]
