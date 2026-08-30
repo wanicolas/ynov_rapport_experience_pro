@@ -6,7 +6,8 @@ echo "Ouvrez le fichier report.pdf dans VS Code ou un lecteur PDF externe pour v
 echo "(Faites Ctrl+C pour arrêter)"
 
 docker run -it --rm \
-  -v "$(pwd)/..:/data" \
-  -w /data/report-bloc4 \
+  -v "$(pwd):/data" \
+  -w /data \
   ghcr.io/typst/typst:latest \
-  watch report_bloc4.typ --root /data --font-path ./fonts
+  watch report.typ report.pdf --font-path assets/fonts
+

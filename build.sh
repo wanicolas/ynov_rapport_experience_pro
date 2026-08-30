@@ -4,13 +4,14 @@
 echo "⏳ Compilation du rapport Typst en cours..."
 
 docker run --rm \
-  -v "$(pwd)/..:/data" \
-  -w /data/report-bloc4 \
+  -v "$(pwd):/data" \
+  -w /data \
   ghcr.io/typst/typst:latest \
-  compile report_bloc4.typ --root /data --font-path ./fonts
+  compile report.typ report.pdf --font-path assets/fonts
 
 if [ $? -eq 0 ]; then
-  echo "✅ Compilation terminée avec succès : report_bloc4.pdf a été généré."
+  echo "✅ Compilation terminée avec succès : report.pdf a été généré."
 else
   echo "❌ Erreur lors de la compilation."
 fi
+
