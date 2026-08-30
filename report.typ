@@ -121,37 +121,14 @@
 )
 
 // -------------------------------------------------------------
-// RÉSUMÉ EXÉCUTIF
+// INCLUSION DES CHAPITRES
 // -------------------------------------------------------------
-#page(header: none)[
-  #v(2em)
-  #text(size: 18pt, weight: "bold")[Résumé Exécutif]
-  #v(1.5em)
-  Ce rapport d'expérience professionnelle présente une analyse approfondie de mon parcours au sein de l'entreprise Logitud Solutions. Il met en lumière les compétences acquises, les projets réalisés et les défis rencontrés, offrant ainsi une vision complète de mon développement professionnel dans le cadre de ma formation en Mastère 2 Expert en Développement Full Stack à Ynov Campus Strasbourg.
 
-  #pagebreak()
-]
-
-// -------------------------------------------------------------
-// TABLE DES MATIÈRES
-// -------------------------------------------------------------
-#page(header: none)[
-  #v(2em)
-  #text(size: 18pt, weight: "bold")[Table des Matières]
-  #v(1.5em)
-  #show outline.entry.where(level: 1): it => {
-    v(1.5em, weak: true)
-    it
-  }
-  #outline(title: none, indent: 1.5em, depth: 2)
-]
-
+#include "chapters/00_liminaires.typ"
 
 #set heading(numbering: "1.1.")
 
-// -------------------------------------------------------------
-// SECTIONS INTERNES
-// -------------------------------------------------------------
+#include "chapters/01_introduction.typ"
 
 
 
