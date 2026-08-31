@@ -59,13 +59,19 @@ Toutefois, le déploiement d'intelligences artificielles dans le secteur public 
         block(fill: rgb("#eff6ff"), stroke: 0.5pt + rgb("#93c5fd"), inset: 0.5em, radius: 3pt)[
           #align(center)[
             #text(weight: "bold", size: 8pt, fill: rgb("#1e40af"))[1. RAG Territorial]\
-            #text(size: 7pt, fill: rgb("#1e3a8a"))[Guidage conversationnel\ Question en suspens :\ Hallucinations & responsabilité]
+            #text(
+              size: 7pt,
+              fill: rgb("#1e3a8a"),
+            )[Guidage conversationnel\ Question en suspens :\ Hallucinations & responsabilité]
           ]
         ],
         block(fill: rgb("#fef3c7"), stroke: 0.5pt + rgb("#fcd34d"), inset: 0.5em, radius: 3pt)[
           #align(center)[
             #text(weight: "bold", size: 8pt, fill: rgb("#92400e"))[2. Vision & OCR Client]\
-            #text(size: 7pt, fill: rgb("#78350f"))[Pré-contrôle justificatifs\ Question en suspens :\ Faux négatifs & AI Act]
+            #text(
+              size: 7pt,
+              fill: rgb("#78350f"),
+            )[Pré-contrôle justificatifs\ Question en suspens :\ Faux négatifs & AI Act]
           ]
         ],
         block(fill: rgb("#f1f5f9"), stroke: 0.5pt + rgb("#cbd5e1"), inset: 0.5em, radius: 3pt)[
@@ -149,7 +155,7 @@ Cette approche concertée a permis de désamorcer les craintes : l'équipe a una
 
 === Arbitrage technique : Le cas du tri et du filtrage bimode Front / Back
 
-Un autre arbitrage marquant a concerné l'architecture du composant `DataTable`. L'approche conventionnelle consistait à déléguer chaque tri ou filtre à l'API back-end. J'ai défendu et fait valider le mode bimode : pour les volumétries courantes (< 6 000 enregistrements), le traitement s'opère instantanément en mémoire côté navigateur (< 30 ms), procurant un confort exceptionnel aux agents tout en déchargeant significativement les serveurs applicatifs.
+Un autre arbitrage marquant a concerné l'architecture du composant `DataTable`. L'approche conventionnelle consistait à déléguer chaque tri ou filtre à l'API back-end. J'ai défendu et fait valider le mode bimode : pour les volumétries courantes, le traitement s'opère instantanément en mémoire côté navigateur (< 30 ms), procurant un confort exceptionnel aux agents tout en déchargeant significativement les serveurs applicatifs.
 
 == Impact mesurable et indicateurs de performance (KPIs)
 
@@ -182,9 +188,7 @@ Afin d'évaluer concrètement la création de valeur pour l'éditeur Logitud Sol
   [-20 %],
   [Optimisation par code splitting Nuxt 4 et chargement dynamique des dépendances.],
 
-  [Temps de tri / recherche table],
-  [< 30 ms],
-  [Fluidité instantanée pour les agents municipaux sur des listes de 6 000 lignes.],
+  [Temps de tri / recherche table], [< 30 ms], [Fluidité instantanée pour les agents municipaux.],
 
   [Gain de temps d'intégration], [~40 %], [Réutilisation des briques partagées (Drawers, DataTables, Clavier tactile).],
 )

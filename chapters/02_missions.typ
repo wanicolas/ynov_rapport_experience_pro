@@ -220,7 +220,10 @@ Pour garantir une robustesse absolue, l'architecture du moteur de billetterie re
         block(fill: rgb("#fef3c7"), stroke: 0.5pt + rgb("#fcd34d"), inset: 0.5em, radius: 3pt)[
           #align(center)[
             #text(weight: "bold", size: 8pt, fill: rgb("#92400e"))[3. Double Canal]\
-            #text(size: 7pt, fill: rgb("#78350f"))[Synchrone : retour web\ Asynchrone : Webhook\ signé serveur à serveur]
+            #text(
+              size: 7pt,
+              fill: rgb("#78350f"),
+            )[Synchrone : retour web\ Asynchrone : Webhook\ signé serveur à serveur]
           ]
         ],
         block(fill: rgb("#dcfce7"), stroke: 0.5pt + rgb("#86efac"), inset: 0.5em, radius: 3pt)[

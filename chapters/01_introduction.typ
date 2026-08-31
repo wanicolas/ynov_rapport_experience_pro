@@ -25,7 +25,7 @@ L'histoire récente de la société est marquée par une phase de consolidation 
       width: 100%,
       [
         #align(center)[
-          #text(size: 15pt, weight: "bold", fill: rgb("#1e3a8a"))[37+ ans] \
+          #text(size: 15pt, weight: "bold", fill: rgb("#1e3a8a"))[40+ ans] \
           #text(size: 8.5pt, fill: rgb("#4b5563"))[d'expertise en logiciel public]
         ]
       ],
@@ -38,7 +38,7 @@ L'histoire récente de la société est marquée par une phase de consolidation 
       width: 100%,
       [
         #align(center)[
-          #text(size: 15pt, weight: "bold", fill: rgb("#1e3a8a"))[6 000+] \
+          #text(size: 15pt, weight: "bold", fill: rgb("#1e3a8a"))[4 000+] \
           #text(size: 8.5pt, fill: rgb("#4b5563"))[collectivités clientes en France]
         ]
       ],
@@ -60,22 +60,20 @@ L'histoire récente de la société est marquée par une phase de consolidation 
 ]
 #v(0.6em)
 
-Aujourd'hui, Logitud Solutions équipe plus de 6 000 communes et intercommunalités en France, dont 99 des 100 plus grandes municipalités françaises, incluant des métropoles de premier plan telles que Strasbourg, Nice, Mulhouse ou Toulouse. Cette diffusion à l'échelle nationale confère à l'entreprise une responsabilité directe dans la continuité du service public numérique et dans le traitement quotidien de millions de démarches administratives.
-
-=== Les trois gammes métiers et l'offre applicative
+Aujourd'hui, Logitud Solutions équipe plus de 4 000 communes et intercommunalités en France. Cette diffusion à l'échelle nationale confère à l'entreprise une responsabilité directe dans la continuité du service public numérique et dans le traitement quotidien de millions de démarches administratives. métiers et l'offre applicative
 
 Le catalogue applicatif de Logitud Solutions s'articule autour de trois domaines fonctionnels majeurs, conçus pour répondre aux missions réglementaires des agents municipaux :
 
 1. *La Gamme Population :* Ce pôle historique regroupe les applications de gestion de l'état civil (*Siècle*), la tenue des listes électorales et la gestion des scrutins (*SuffrageWeb*, *Scrutin*), la gestion des concessions funéraires (*Éternité*) ainsi que le recensement citoyen et militaire (*Avenir*, *Décennie*). Ces outils manipulent des données hautement sensibles et sont soumis à des contraintes légales d'une rigueur absolue.
 2. *La Gamme Sécurité :* Dédiée à l'équipement des polices municipales et des agents de surveillance de la voie publique (ASVP), cette gamme comprend des logiciels de gestion des mains courantes et interventions (*Municipol*), des solutions mobiles de verbalisation électronique (*GVE*, *GVs*) et des outils de gestion de fourrière automobile.
-3. *La Gamme Dématérialisation et Relation Usagers (GRU) :* Centrée autour de la plateforme *Mon-Guichet* et des passerelles nationales telles que le bouquet de services *HubEE*, cette gamme assure la dématérialisation complète des interactions entre les administrés et leur mairie. Elle offre des portails citoyens accessibles 24h/24 ainsi que des consoles d'instruction spécialisées pour les agents.
+3. *La Gamme Dématérialisation et Relation Usagers (GRU) :* Centrée autour de la plateforme *Mon-Guichet* et des passerelles nationales, cette gamme assure la dématérialisation complète des interactions entre les administrés et leur mairie. Elle offre des portails citoyens accessibles 24h/24 ainsi que des consoles d'instruction spécialisées pour les agents.
 
 === Analyse de l'écosystème GovTech et dynamique concurrentielle
 
 Le marché du logiciel public territorial (souvent qualifié de *GovTech*) se caractérise par une forte spécificité réglementaire et un haut niveau de barrière à l'entrée. Le paysage concurrentiel se structure autour de trois grandes familles d'acteurs :
 
-- *Les éditeurs généralistes historiques (ex. Berger-Levrault, Arpège, Ciril Group) :* Disposant d'un catalogue étendu mais souvent pénalisés par des architectures logicielles héritées (*legacy*) lourdes, ces acteurs peinent à offrir la réactivité et l'ergonomie attendues par les nouvelles générations d'administrés.
-- *Les initiatives étatiques centralisées (ex. Démarches Simplifiées) :* Portées par la DINUM, ces plateformes offrent des formulaires génériques gratuits mais ne répondent pas aux besoins d'interconnexion fine avec les progiciels métiers municipaux, ni à la gestion des flux physiques au guichet.
+- *Les éditeurs généralistes historiques :* Disposant d'un catalogue étendu mais souvent pénalisés par des architectures logicielles héritées (*legacy*) lourdes, ces acteurs peinent à offrir la réactivité et l'ergonomie attendues par les nouvelles générations d'administrés.
+- *Les initiatives étatiques centralisées :* Portées par la DINUM, ces plateformes offrent des formulaires génériques gratuits mais ne répondent pas aux besoins d'interconnexion fine avec les progiciels métiers municipaux, ni à la gestion des flux physiques au guichet.
 - *Les pure-players SaaS spécialisés :* De nouveaux entrants ciblent des briques isolées (ex. prise de rendez-vous ou billetterie), mais sans disposer de la profondeur fonctionnelle ni de la conformité juridique éprouvée sur l'ensemble de la chaîne administrative.
 
 Dans cet échiquier, Logitud Solutions se différencie par une stratégie d'*écosystème unifié* : combiner la robustesse de 37 ans d'expertise réglementaire avec des interfaces web modernes, ultra-rapides et modulaires.
