@@ -397,7 +397,7 @@ J'ai participé activement à la refonte complète du portail usager (Mon-Guiche
   columns: (1fr, 1fr),
   gutter: 1em,
   figure(
-    image("../assets/images/mon-guichet/home_v1.png", width: 100%),
+    image("../assets/images/mon-guichet/home_v1.jpg", width: 100%),
     caption: [Mon-Guichet v1 : Interface historique avec mise en page classique],
   ),
   figure(
